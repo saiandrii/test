@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import "./App.css";
+import Welcome from "./component/Welcome";
+import { GraContext } from "./context/AppContext";
+import Main from "./component/Main";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Routes,
+} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Finish from "./component/Finish";
+import Edit from "./component/Edit";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/finish" element={<Finish />} />
+        <Route path="/edit" element={<Edit />} />
+      </Routes>
     </div>
   );
+  // return clicked === true ? <Main /> : <Welcome />;
 }
 
 export default App;
